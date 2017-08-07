@@ -12,14 +12,14 @@ class SubTypePetTableSedeer extends Seeder
      */
     public function run()
     {
-        $stp = new SubTypePet();
-        $stp->type_id = '1';
-        $stp->description = 'Raza 1';
-        $stp->save();
+        // $stp = new SubTypePet();
+        // $stp->type_id = '1';
+        // $stp->description = 'Raza 1';
+        // $stp->save();
 
-        $stp2 = new SubTypePet();
-        $stp2->type_id = '2';
-        $stp2->description = 'Raza 2';
-        $stp2->save();
+        // $stp2 = new SubTypePet();
+        // $stp2->type_id = '2';
+        // $stp2->description = 'Raza 2';
+        // $stp2->save();
     }
 }

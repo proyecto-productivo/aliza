@@ -60,12 +60,12 @@
                         </div>
 
                         <div class="form-group">
-                            {!!form::label('Departamento falta')!!}
+                            {!!form::label('Departamento')!!}
                             {!!form::select('state_id', $states, null,['placeholder' => 'Seleccione un departamento', 'onchange' => 'filterCities(this)', 'class' => 'form-control selector', 'required', 'id' => 'state_selector'])!!}
                         </div>
 
                         <div class="form-group">
-                            {!!form::label('Ciudad falta')!!}
+                            {!!form::label('Ciudad')!!}
                             <select name="city_id" id="cities_selector" class="form-control selector" required></select>
                         </div>
 

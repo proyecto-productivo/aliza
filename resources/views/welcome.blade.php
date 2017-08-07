@@ -36,7 +36,7 @@
                         </div>
 
                         <div class="form-group">
-                            {!!form::submit('Buscar',['name'=>'save','id'=>'save','class'=>'btn btn-primary'])!!}
+                            {!!form::submit('Buscar',['name'=>'save','id'=>'save','class'=>'btn btn-primary btn-block'])!!}
                         </div>
 
                     {!!Form::close()!!}
