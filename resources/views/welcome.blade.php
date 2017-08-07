@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">¿Qué buscas?</div>
+                <div class="panel-heading barra">¿Qué buscas?</div>
 
                 <div class="panel-body">
                     {!!Form::open(['route'=>'search.store','method'=>'POST', 'files' => true])!!}
@@ -36,7 +36,7 @@
                         </div>
 
                         <div class="form-group">
-                            {!!form::submit('Buscar',['name'=>'save','id'=>'save','class'=>'btn btn-primary btn-block'])!!}
+                            {!!form::submit('Buscar',['name'=>'save','id'=>'save','class'=>'btn btn-primary btn-block boton'])!!}
                         </div>
 
                     {!!Form::close()!!}

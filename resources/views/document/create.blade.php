@@ -70,7 +70,8 @@
                         </div>
 
                         <div class="form-group">
-                            {!!form::submit('Guardar',['name'=>'save','id'=>'save','content'=>'<span>Grabar</span>','class'=>'btn btn-primary'])!!}
+                            {!!form::submit('Guardar',
+                            ['name'=>'save','id'=>'save','content'=>'<span>Grabar</span>','class'=>'btn btn-primary  btn-block boton'])!!}
                         </div>
 
 

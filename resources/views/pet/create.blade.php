@@ -22,7 +22,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">¿Encontraste o perdiste una mascota?</div>
+                <div class="panel-heading barra">¿Encontraste o perdiste una mascota?</div>
 
                 <div class="panel-body">
                     {!!Form::open(['route'=>'pet.store','method'=>'POST', 'files' => true])!!}
@@ -83,7 +83,8 @@
                         </div>
 
                         <div class="form-group">
-                            {!!form::submit('Guardar',['name'=>'save','id'=>'save','content'=>'<span>Grabar</span>','class'=>'btn btn-primary'])!!}
+                            {!!form::submit('Guardar',
+                            ['name'=>'save','id'=>'save','content'=>'<span>Grabar</span>','class'=>'btn btn-primary  btn-block boton'])!!}
                         </div>
 
                     {!!Form::close()!!}
