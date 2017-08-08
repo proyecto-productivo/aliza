@@ -6,19 +6,19 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading barra">¿Como te ayudamos?</div>
+                <div class="panel-heading barra">¿Qué ha encontrado?</div>
                     <div class="row">
                         <div class="col-xs-12 col-md-6 ">
-                            <a href="{{route('go-missed')}}" class="">
+                            <a href="{{route('found-document')}}" class="">
                                 <div class="caja-nav">
-                                    Perdí algo
+                                    Un documento
                                 </div>
                             </a>
                         </div>
                         <div class="col-xs-12 col-md-6">
-                            <a href="{{route('go-found')}}" class="">
+                            <a href="{{route('found-pet')}}" class="">
                                 <div class="caja-nav">
-                                    Encontré algo
+                                    Una mascota
                                 </div>
                             </a>
                         </div>

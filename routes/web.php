@@ -20,6 +20,12 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/getcities/{state_id}', 'CityController@cityFilter')->name('getcities');
 Route::get('/getsubtypepets/{id}', 'SubTypePetController@subTypePetFilter')->name('getsubtypepets');
+Route::get('/go-missed', 'MainController@missed')->name('go-missed');
+Route::get('/go-found', 'MainController@found')->name('go-found');
+Route::get('/found-document', 'MainController@found_document')->name('found-document');
+Route::get('/search-document', 'MainController@search_document')->name('search-document');
+Route::get('/found-pet', 'MainController@found_pet')->name('found-pet');
+Route::get('/search-pet', 'MainController@search_pet')->name('search-pet');
 
 
 

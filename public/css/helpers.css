@@ -1,7 +1,7 @@
 .barra {
   text-align: center;
   color: white !important;
-  background-color: #0EA30B !important;
+  background-color: #136AC7 !important;
 }
 
 .barra a {
@@ -9,6 +9,15 @@
 }
 
 .boton {
-  background-color: #B62599 !important;
+  background-color: #6FD973 !important;
+}
+
+.caja-nav {
+  margin-top: 1px;
+  padding: 50px;
+  background-color: #94D992;
+  color: white;
+  text-align: center;
+  font-size: 2em;
 }
 
