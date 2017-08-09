@@ -19,7 +19,9 @@ class DocumentController extends Controller
      */
     public function index()
     {
-        return view('document.index');
+        $documents = Document::where('owner_id', '=', Auth::user()->id)->get();
+        // dd($documents);
+        return view('document.index', compact('documents'));
     }
 
     /**

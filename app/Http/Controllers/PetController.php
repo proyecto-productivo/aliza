@@ -21,7 +21,8 @@ class PetController extends Controller
      */
     public function index()
     {
-        return view('pet.index');
+        $pets = Pet::where('owner_id', '=', Auth::user()->id)->get();
+        return view('pet.index', compact('pets'));
     }
 
     /**
