@@ -34,7 +34,6 @@ class MainController extends Controller
         $typeDocs       = TypeDoc::orderBy('description', 'asc')->pluck('description', 'id');
         $states         = State::orderBy('name', 'asc')->pluck('name', 'code');
         $cities         = City::orderBy('name', 'asc')->pluck('name', 'code');
-        
         $process_id = 2;
         return view ('document.found-document', compact('process_id', 'typeDocs', 'states', 'cities'));
     }

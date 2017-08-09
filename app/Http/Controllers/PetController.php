@@ -11,6 +11,7 @@ use App\SubTypePet;
 use Storage;
 use App\ProcessType;
 use Auth;
+use App\Http\Requests\PetRequest;
 
 class PetController extends Controller
 {
@@ -47,7 +48,7 @@ class PetController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PetRequest $request)
     {
         // dd($request->all());
         $pet = new Pet();
@@ -83,7 +84,16 @@ class PetController extends Controller
         $pet->city_id       = $request->city_id;
 
             // dd($pet);
-        $pet->save();
+        if($pet->save()){
+
+             Flash::success("Su solicitud se a guardado")->important();
+
+        }else{
+
+             Flash::success("Ups!!!, hubo un problema al guardar su peticion")->important();
+        }
+
+        return redirect()->route('found-pet');
 
     }
 
