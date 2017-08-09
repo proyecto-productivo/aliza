@@ -9,6 +9,8 @@ use App\State;
 use App\City;
 use App\ProcessType;
 use Auth;
+use Laracasts\Flash\Flash;
+use App\Http\Requests\DocumentRequest;
 
 class DocumentController extends Controller
 {
@@ -43,13 +45,15 @@ class DocumentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(DocumentRequest $request)
     {
         $document = new Document();
 
         if ($request->process_id == 1){
             $document->owner_id = Auth::user()->id;
         }
+
+        // proces_id 1 es perdio 2 es encontro
 
         $document->user_id       = Auth::user()->id;
         $document->process_id    = $request->process_id;
@@ -62,7 +66,19 @@ class DocumentController extends Controller
         $document->state_id      = $request->state_id;
         $document->city_id       = $request->city_id;
 
-        $document->save();
+
+            if($document->save()){
+
+            Flash::success("Su solicitud se a guardado")->important();
+
+        }else{
+
+                Flash::warning("Ups!!!, hubo un problema al guardar su peticion")->important();
+
+             }
+
+
+        return redirect()->route('document.create');
     }
 
     /**

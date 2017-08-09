@@ -30,6 +30,21 @@
                         {{Form::hidden('process_id', $process_id)}}
 
                         <div class="form-group">
+                          @if (count($errors) > 0)
+                            <div class="alert alert-warning" role="alert">
+                                <ul>
+                                    @foreach($errors->all() as $error)
+    
+                                     <li> {{$error}}</li>
+    
+                                    @endforeach
+    
+                                    </ul>
+                                </div>
+                            @endif 
+                        </div>
+
+                        <div class="form-group">
                             {!!form::label('Tipo de mascota')!!}
                             {!!form::select('type_id', $typePets, null,['placeholder' => 'Seleccione un tipo', 'onchange' => 'filterSubTypePet(this)', 'id' => 'selector_pets', 'class' => 'form-control selector', 'required'])!!}
                         </div>

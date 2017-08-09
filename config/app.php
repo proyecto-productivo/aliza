@@ -178,6 +178,8 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Collective\Html\HtmlServiceProvider::class,
+         // Laracast para mensajes feedback
+        Laracasts\Flash\FlashServiceProvider::class,
 
     ],
 
@@ -230,6 +232,10 @@ return [
 
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+
+        // mensajes al main 
+
+        'Flash' => Laracasts\Flash\Flash::class,
 
     ],
 

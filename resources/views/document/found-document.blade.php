@@ -25,6 +25,21 @@
                     {!!Form::open(['route'=>'document.store','method'=>'POST'])!!}
                         
                         {{Form::hidden('process_id', $process_id)}}
+                        
+                        <div class="form-group">
+                          @if (count($errors) > 0)
+                            <div class="alert alert-warning" role="alert">
+                                <ul>
+                                    @foreach($errors->all() as $error)
+    
+                                     <li> {{$error}}</li>
+    
+                                    @endforeach
+    
+                                    </ul>
+                                </div>
+                            @endif 
+                        </div>
 
                         <div class="form-group">
                             {!!form::label('Tipo')!!}
