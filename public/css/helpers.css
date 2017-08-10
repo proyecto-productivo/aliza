@@ -1,3 +1,9 @@
+.navbar {
+  text-align: center;
+  color: white !important;
+  background-color: #136AC7 !important;
+}
+
 .barra {
   text-align: center;
   color: white !important;
@@ -19,5 +25,10 @@
   color: white;
   text-align: center;
   font-size: 2em;
+}
+
+.dropdown-menu {
+  background-color: #136AC7;
+  color: black;
 }
 
