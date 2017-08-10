@@ -8,6 +8,13 @@
             <div class="panel panel-default">
                 <div class="panel-heading barra">¿Como te ayudamos?</div>
                     <div class="row">
+                        <div class="col-xs-12">
+                            <div class="caja-nav">
+                                Buscar algo en Aliza
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="col-xs-12 col-md-6 ">
                             <a href="{{route('go-missed')}}" class="">
                                 <div class="caja-nav">

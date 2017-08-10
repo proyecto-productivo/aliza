@@ -26,6 +26,7 @@ Route::get('/found-document', 'MainController@found_document')->name('found-docu
 Route::get('/search-document', 'MainController@search_document')->name('search-document');
 Route::get('/found-pet', 'MainController@found_pet')->name('found-pet');
 Route::get('/search-pet', 'MainController@search_pet')->name('search-pet');
+Route::get('/show-pets-missed-list', 'MainController@showPetsMissedList')->name('show-pets-missed-list');
 
 
 

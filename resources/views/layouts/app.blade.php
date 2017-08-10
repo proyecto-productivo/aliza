@@ -46,8 +46,8 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                            <li><a href="{{ route('document.create') }}">Documentos</a></li>
-                            <li><a href="{{ route('pet.create') }}">Mascotas</a></li>
+                            <li><a href="{{ route('document.create') }}">Buscar</a></li>
+                            <li><a href="{{ route('show-pets-missed-list') }}">Mascotas</a></li>
                             <li><a href="{{ route('login') }}">Ingresar</a></li>
                             <li><a href="{{ route('register') }}">Registrarse</a></li>
                         @else

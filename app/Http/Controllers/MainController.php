@@ -11,6 +11,7 @@ use App\SubTypePet;
 use Storage;
 use App\ProcessType;
 use Auth;
+use App\Pet;
 
 class MainController extends Controller
 {
@@ -20,6 +21,12 @@ class MainController extends Controller
 
     public function found(){
         return view ('go_found');
+    }
+
+    public function showPetsMissedList(){
+        $pets = Pet::paginate(15);
+        // dd($pets);
+        return view ('pets-missed-list', compact('pets'));
     }
 
     public function search_document(){

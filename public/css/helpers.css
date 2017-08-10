@@ -21,14 +21,43 @@
 .caja-nav {
   margin-top: 1px;
   padding: 50px;
-  background-color: #94D992;
-  color: white;
+  color: lightgrey;
   text-align: center;
   font-size: 2em;
+  border-radius: 25% 0% 25% 0%;
+}
+
+.caja-nav:hover {
+  background: lightgrey;
+  -webkit-transition: 1s;
+  transition: 1s;
+  -webkit-text-decoration-style: none;
+          text-decoration-style: none;
 }
 
 .dropdown-menu {
   background-color: #136AC7;
   color: black;
+}
+
+.card {
+  /* Add shadows to create the "card" effect */
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+/* On mouse-over, add a deeper shadow */
+
+.card:hover {
+  -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Add some padding inside the card container */
+
+.container {
+  padding: 2px 16px;
 }
 
