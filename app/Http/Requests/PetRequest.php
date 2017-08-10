@@ -27,7 +27,7 @@ class PetRequest extends FormRequest
             'imagen'=>"required|mimes:jpeg,bmp,png",
             'type_id'=>"required",
             'subtype_id'=>"required",
-            'name'=>"required|max:20|min:2",
+            'name'=>"max:20",
             'condition'=>"required",
             'notes'=>"required",
             'place'=>"required",

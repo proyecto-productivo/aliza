@@ -28,7 +28,7 @@ class DocumentRequest extends FormRequest
         'type_id'=> "required",
         'entity'=> "required",
         'number'=>"required|min:4|max:20",
-        'name'=>"required|min:3|max:40",
+        'name'=>"max:40",
         'notes'=>"required|min:5",
         'place'=>"required",
         'state_id'=>"required",

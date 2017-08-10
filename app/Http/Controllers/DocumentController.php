@@ -21,9 +21,20 @@ class DocumentController extends Controller
      */
     public function index()
     {
+        $process = $_GET['pro'];
+        $encontre;
+        Flash::success("Su solicitud se a guardado")->important(); 
+        if($process==2){
+        $documents = Document::where('user_id', '=', Auth::user()->id)->get();
+        $encontre = 'encontre';
+        return view('prueba', compact('documents','encontre'));
+            
+        }else{
         $documents = Document::where('owner_id', '=', Auth::user()->id)->get();
-        // dd($documents);
-        return view('document.index', compact('documents'));
+        $encontre="perdi";
+        return view('prueba', compact('documents','encontre'));
+
+        }
     }
 
     /**
@@ -55,8 +66,6 @@ class DocumentController extends Controller
             $document->owner_id = Auth::user()->id;
         }
 
-        // proces_id 1 es perdio 2 es encontro
-
         $document->user_id       = Auth::user()->id;
         $document->process_id    = $request->process_id;
         $document->type_id       = $request->type_id;
@@ -68,19 +77,55 @@ class DocumentController extends Controller
         $document->state_id      = $request->state_id;
         $document->city_id       = $request->city_id;
 
+        // proces_id 1 es perdio 2 es encontro
 
-            if($document->save()){
+        if($request->process_id == 2){
 
-            Flash::success("Su solicitud se a guardado")->important();
+           if($document->save()){
+
+              
+
+                    return redirect()->route('document.index',['pro'=>$request->process_id]);
 
         }else{
 
                 Flash::warning("Ups!!!, hubo un problema al guardar su peticion")->important();
 
+                return back();
+
              }
 
+        }else{
 
-        return redirect()->route('document.create');
+             if($request->name == null){
+
+                Flash::error("¡¡El campo 'Nombre En Documento' es obligatorio!!")->important();
+                return back();
+            }else{
+
+                 if($document->save()){
+
+              
+
+                    return redirect()->route('document.index',['pro'=>$request->process_id]);
+
+        }else{
+
+                Flash::warning("Ups!!!, hubo un problema al guardar su peticion")->important();
+
+                return back();
+
+             }
+
+            }
+
+
+        }
+
+            
+
+
+        
     }
 
     /**
