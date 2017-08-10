@@ -29,6 +29,10 @@
 
                         {{Form::hidden('process_id', $process_id)}}
 
+                         <div class="form-group">
+                            @include('flash::message')
+                        </div>
+
                         <div class="form-group">
                             {!!form::label('Tipo de mascota')!!}
                             {!!form::select('type_id', $typePets, null,['placeholder' => 'Seleccione un tipo', 'onchange' => 'filterSubTypePet(this)', 'id' => 'selector_pets', 'class' => 'form-control selector', 'required'])!!}

@@ -25,6 +25,10 @@
                     {!!Form::open(['route'=>'document.store','method'=>'POST'])!!}
                         
                         {{Form::hidden('process_id', $process_id)}}
+
+                           <div class="form-group">
+                            @include('flash::message')
+                        </div>
                         
                         <div class="form-group">
                           @if (count($errors) > 0)

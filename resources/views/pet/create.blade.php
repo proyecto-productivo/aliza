@@ -28,6 +28,10 @@
                     {!!Form::open(['route'=>'pet.store','method'=>'POST', 'files' => true])!!}
 
                         <div class="form-group">
+                            @include('flash::message')
+                        </div>
+
+                        <div class="form-group">
                             {!!form::label('¿Cómo te ayudarmos?')!!}
                             {!!form::select('process_id', $processes, null,['class' => 'form-control selector', 'required'])!!}
                         </div>

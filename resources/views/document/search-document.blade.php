@@ -27,6 +27,10 @@
                         {{Form::hidden('process_id', $process_id)}}
 
                         <div class="form-group">
+                            @include('flash::message')
+                        </div>
+
+                        <div class="form-group">
                             {!!form::label('Tipo')!!}
                             {!!form::select('type_id', $typeDocs, null,['class' => 'form-control selector', 'required', 'placeholder' => 'Selecciona un tipo'])!!}
                         </div>

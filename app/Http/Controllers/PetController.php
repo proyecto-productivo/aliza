@@ -12,6 +12,7 @@ use Storage;
 use App\ProcessType;
 use Auth;
 use App\Http\Requests\PetRequest;
+use Laracasts\Flash\Flash;
 
 class PetController extends Controller
 {
@@ -21,9 +22,19 @@ class PetController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $pets = Pet::where('owner_id', '=', Auth::user()->id)->get();
-        return view('pet.index', compact('pets'));
+    {   
+        $pe = $_GET['pet'];
+        $encontre;
+        if($pe==2){
+            $encontre = "encontrado animal";
+            $pets = Pet::where('user_id', '=', Auth::user()->id)->get();  
+            return view('prueba', compact('pets','encontre'));
+        }else{
+             $encontre="perdido animal";
+             $pets = Pet::where('owner_id', '=', Auth::user()->id)->get();
+             return view('prueba', compact('pets','encontre'));
+
+        }
     }
 
     /**
@@ -84,16 +95,46 @@ class PetController extends Controller
         $pet->city_id       = $request->city_id;
 
             // dd($pet);
-        if($pet->save()){
 
-             Flash::success("Su solicitud se a guardado")->important();
+        if($request->process_id==2){
+
+            if($pet->save()){
+
+                 Flash::success("Su solicitud se a guardado")->important();
+                 return redirect()->route('pet.index',['pet'=>$request->process_id]);
+
+            }else{
+
+                 Flash::warning("Ups!!!, hubo un problema al guardar su peticion")->important();
+                 return back();
+             }
 
         }else{
 
-             Flash::success("Ups!!!, hubo un problema al guardar su peticion")->important();
-        }
+             if($request->name==null){ 
 
-        return redirect()->route('found-pet');
+            Flash::error("¡¡El campo 'Nombre De Tu Mascota' es obligatorio!!")->important();
+            return back();
+
+        }else{ 
+
+            if($pet->save()){
+
+                 Flash::success("Su solicitud se a guardado")->important();
+                 return redirect()->route('pet.index',['pet'=>$request->process_id]);
+
+            }else{
+
+                 Flash::warning("Ups!!!, hubo un problema al guardar su peticion")->important();
+                 return back();
+             }
+        }   
+
+
+        }
+       
+
+        
 
     }
 
