@@ -53,6 +53,7 @@
                         @else
                             {{--  <li><a href="{{ route('document.create') }}">Buscar</a></li>  --}}
                             <li><a href="{{ route('show-pets-missed-list') }}">Mascotas</a></li>
+                            <li><a href="{{ url('/home') }}">Tus coincidencias</a></li>
                             <li>
                                 <a href="">Notificaciones 
                                     <span class="badge notify">
