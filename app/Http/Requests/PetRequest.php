@@ -24,7 +24,8 @@ class PetRequest extends FormRequest
     public function rules()
     {
         return [
-            'imagen'=>"required|mimes:jpeg,bmp,png",
+            // 'imagen'=>"required|mimes:jpeg,bmp,png",
+            'imagen'=>"required",
             'type_id'=>"required",
             'subtype_id'=>"required",
             'name'=>"max:20",

@@ -9,11 +9,18 @@ use App\State;
 use App\City;
 use App\ProcessType;
 use Auth;
+use App\User;
 use Laracasts\Flash\Flash;
 use App\Http\Requests\DocumentRequest;
+use App\Notifications\PostCreated;
 
 class DocumentController extends Controller
 {
+    public function __construct()
+    {
+        // $this->middleware('auth')->except('index');
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -21,20 +28,35 @@ class DocumentController extends Controller
      */
     public function index()
     {
-        $process = $_GET['pro'];
-        $encontre;
-        Flash::success("Su solicitud se a guardado")->important(); 
-        if($process==2){
-        $documents = Document::where('user_id', '=', Auth::user()->id)->get();
-        $encontre = 'encontre';
-        return view('prueba', compact('documents','encontre'));
-            
-        }else{
-        $documents = Document::where('owner_id', '=', Auth::user()->id)->get();
-        $encontre="perdi";
-        return view('prueba', compact('documents','encontre'));
+        if (isset($_GET['pro'])){
+            $process = $_GET['pro'];
 
+            // Flash::success("Su solicitud se a guardado")->important(); 
+            if($process==2){
+                $documents = Document::where('user_id', '=', Auth::user()->id)
+                            ->where('process_id', '=', '2')
+                            ->orderBy('id', 'desc')->get();
+                // $encontre = 'encontre';
+                return view('document.my-found-list', compact('documents'));
+                
+            }else{
+                $documents = Document::where('owner_id', '=', Auth::user()->id)
+                                    ->where('process_id', '=', '1')
+                                    ->orderBy('id', 'desc')->get();
+                // $encontre="perdi";
+                return view('document.my-missed-list', compact('documents'));
+
+            }
+        }else{
+            // dd('Prohibido');
+            $documents = Document::where('owner_id', '=', Auth::user()->id)
+                                    ->where('process_id', '=', '1')
+                                    ->orderBy('id', 'desc')->get();
+                // $encontre="perdi";
+                return view('document.my-missed-list', compact('documents'));
         }
+        
+        
     }
 
     /**
@@ -79,53 +101,22 @@ class DocumentController extends Controller
 
         // proces_id 1 es perdio 2 es encontro
 
-        if($request->process_id == 2){
+        if ($request->name == null){
+            Flash::error("¡¡El campo 'Nombre En Documento' es obligatorio!!")->important();
+            return back();
+        }else if ($document->save()){
 
-           if($document->save()){
+            //Notificacion
+            $user = User::find(Auth::user()->id);
+            $user->notify(new PostCreated($mensaje = 'Se ha creado su publicación'));
 
-              
-
-                    return redirect()->route('document.index',['pro'=>$request->process_id]);
-
-        }else{
-
-                Flash::warning("Ups!!!, hubo un problema al guardar su peticion")->important();
-
-                return back();
-
-             }
-
-        }else{
-
-             if($request->name == null){
-
-                Flash::error("¡¡El campo 'Nombre En Documento' es obligatorio!!")->important();
-                return back();
-            }else{
-
-                 if($document->save()){
-
-              
-
-                    return redirect()->route('document.index',['pro'=>$request->process_id]);
-
-        }else{
-
-                Flash::warning("Ups!!!, hubo un problema al guardar su peticion")->important();
-
-                return back();
-
-             }
-
-            }
-
-
-        }
-
+            return redirect()->route('document.index',['pro'=>$request->process_id]);
             
-
-
-        
+        }else{
+            Flash::warning("Ups!!!, hubo un problema al guardar su peticion")->important();
+            return back();
+        }
+   
     }
 
     /**
