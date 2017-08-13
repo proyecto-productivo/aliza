@@ -64,7 +64,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'America/Bogota',
 
     /*
     |--------------------------------------------------------------------------
@@ -77,7 +77,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'es',
 
     /*
     |--------------------------------------------------------------------------
@@ -166,7 +166,10 @@ return [
         /*
          * Package Service Providers...
          */
+
+        Jenssegers\Date\DateServiceProvider::class,
         Laravel\Tinker\TinkerServiceProvider::class,
+
 
         /*
          * Application Service Providers...
@@ -236,6 +239,7 @@ return [
         // mensajes al main 
 
         'Flash' => Laracasts\Flash\Flash::class,
+        'Date' => Jenssegers\Date\Date::class,
 
     ],
 

@@ -21,18 +21,28 @@
 .caja-nav {
   margin-top: 1px;
   padding: 50px;
-  color: lightgrey;
+  color: grey;
   text-align: center;
   font-size: 2em;
-  border-radius: 25% 0% 25% 0%;
+}
+
+.notify {
+  color: black !important;
+  background-color: yellow;
 }
 
 .caja-nav:hover {
+  color: black;
   background: lightgrey;
   -webkit-transition: 1s;
   transition: 1s;
   -webkit-text-decoration-style: none;
           text-decoration-style: none;
+  text-decoration: none;
+}
+
+.caja-nav a:hover {
+  text-decoration: none !important;
 }
 
 .dropdown-menu {
@@ -59,5 +69,12 @@
 
 .container {
   padding: 2px 16px;
+}
+
+.slogan {
+  text-align: center !important;
+  color: grey !important;
+  -webkit-transition: 1s;
+  transition: 1s;
 }
 

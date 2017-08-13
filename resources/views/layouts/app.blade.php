@@ -46,23 +46,33 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                            <li><a href="{{ route('document.create') }}">Buscar</a></li>
-                            <li><a href="{{ route('show-pets-missed-list') }}">Mascotas</a></li>
+                            {{--  <li><a href="{{ route('document.create') }}">Buscar</a></li>  --}}
+                            
                             <li><a href="{{ route('login') }}">Ingresar</a></li>
                             <li><a href="{{ route('register') }}">Registrarse</a></li>
                         @else
+                            {{--  <li><a href="{{ route('document.create') }}">Buscar</a></li>  --}}
+                            <li><a href="{{ route('show-pets-missed-list') }}">Mascotas</a></li>
+                            <li><a href="{{ url('/home') }}">Tus coincidencias</a></li>
+                            <li>
+                                <a href="">Notificaciones 
+                                    <span class="badge notify">
+                                        {{Auth::user()->notifications->count()}}
+                                    </span> 
+                                </a>
+                            </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
-                                    <li>
+                                    {{--  <li>
                                         <a href="">Mis Mascotas extraviadas</a>
                                     </li>
                                     <li>
                                         <a href="">Mis documentos extraviados</a>
-                                    </li>
+                                    </li>  --}}
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
@@ -90,5 +100,6 @@
     <script id="__bs_script__">//<![CDATA[
         document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.js?v=2.18.12'><\/script>".replace("HOST", location.hostname));
     //]]></script>
+    <script type="text/javascript" src="https://cdn.ywxi.net/js/1.js" async></script>
 </body>
 </html>

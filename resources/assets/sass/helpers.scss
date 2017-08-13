@@ -33,17 +33,27 @@
     margin-top: 1px;
     padding: 50px;
     // background-color: #94D992;
-    color: lightgrey;
+    color: grey;
     text-align: center;
     font-size: 2em;
-    border-radius: 25% 0% 25% 0%;
+    // border-radius: 25% 0% 25% 0%;
+}
+
+.notify{
+    color: black !important;
+    background-color: yellow;
 }
 
 .caja-nav:hover{
+    color: black;
     background: lightgrey;
     transition: 1s;
     text-decoration-style: none;
-    
+    text-decoration: none;
+}
+
+.caja-nav a:hover{
+    text-decoration: none !important;
 }
 
 
@@ -66,4 +76,11 @@
 /* Add some padding inside the card container */
 .container {
     padding: 2px 16px;
+}
+
+.slogan{
+    text-align: center !important;
+    color: grey !important;
+    // background-color: #136AC7 !important;
+    transition: 1s;
 }
