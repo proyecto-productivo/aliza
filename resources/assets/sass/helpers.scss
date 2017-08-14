@@ -52,8 +52,23 @@
     text-decoration: none;
 }
 
-.caja-nav a:hover{
+.decoration--none
+{
     text-decoration: none !important;
+}
+
+.full-height {
+    height: 100vh;
+}
+.aliza-height {
+    height: calc(100vh - 77px);
+}
+
+.aliza-center--vh{
+    height: calc(100vh - 77px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 

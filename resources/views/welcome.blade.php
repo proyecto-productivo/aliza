@@ -18,14 +18,14 @@
                     </div>  --}}
                     <div class="row">
                         <div class="col-xs-12 col-md-6 ">
-                            <a href="{{route('go-missed')}}" class="">
+                            <a href="{{route('go-missed')}}" class="decoration--none">
                                 <div class="caja-nav">
                                     Perdí algo
                                 </div>
                             </a>
                         </div>
                         <div class="col-xs-12 col-md-6">
-                            <a href="{{route('go-found')}}" class="">
+                            <a href="{{route('go-found')}}" class="decoration--none">
                                 <div class="caja-nav">
                                     Encontré algo
                                 </div>
