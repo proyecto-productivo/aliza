@@ -29,7 +29,13 @@ class MainController extends Controller
     }
 
     public function showPetsMissedList(){
-        $pets = Pet::paginate(15);
+        $pets = Pet::where('process_id', '=', '1')->paginate(15);
+        // dd($pets);
+        return view ('pets-missed-list', compact('pets'));
+    }
+
+    public function showPetsfoundList(){
+        $pets = Pet::where('process_id', '=', '2')->paginate(15);
         // dd($pets);
         return view ('pets-missed-list', compact('pets'));
     }

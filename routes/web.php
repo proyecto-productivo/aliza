@@ -27,6 +27,7 @@ Route::get('/search-document', 'MainController@search_document')->name('search-d
 Route::get('/found-pet', 'MainController@found_pet')->name('found-pet')->middleware('auth');
 Route::get('/search-pet', 'MainController@search_pet')->name('search-pet')->middleware('auth');
 Route::get('/show-pets-missed-list', 'MainController@showPetsMissedList')->name('show-pets-missed-list');
+Route::get('/show-pets-found-list', 'MainController@showPetsfoundList')->name('show-pets-found-list');
 
 
 

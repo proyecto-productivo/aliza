@@ -52,7 +52,22 @@
                             <li><a href="{{ route('register') }}">Registrarse</a></li>
                         @else
                             {{--  <li><a href="{{ route('document.create') }}">Buscar</a></li>  --}}
-                            <li><a href="{{ route('show-pets-missed-list') }}">Mascotas</a></li>
+                            
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    Mascotas <span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="{{ route('show-pets-found-list') }}">Encontradas</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('show-pets-missed-list') }}">Perdidas</a>
+                                    </li> 
+                                </ul>
+                            </li>
+
                             <li><a href="{{ url('/home') }}">Tus coincidencias</a></li>
                             <li>
                                 <a href="">Notificaciones 
