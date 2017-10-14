@@ -9,14 +9,14 @@
                 <div class="panel-heading barra">¿Qué ha encontrado?</div>
                     <div class="row">
                         <div class="col-xs-12 col-md-6 ">
-                            <a href="{{route('found-document')}}" class="">
+                            <a href="{{route('found-document')}}" class="decoration--none">
                                 <div class="caja-nav">
                                     Un documento
                                 </div>
                             </a>
                         </div>
                         <div class="col-xs-12 col-md-6">
-                            <a href="{{route('found-pet')}}" class="">
+                            <a href="{{route('found-pet')}}" class="decoration--none">
                                 <div class="caja-nav">
                                     Una mascota
                                 </div>

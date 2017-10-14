@@ -53,6 +53,7 @@
                         @else
                             {{--  <li><a href="{{ route('document.create') }}">Buscar</a></li>  --}}
                             <li><a href="{{ route('show-pets-missed-list') }}">Mascotas</a></li>
+                            <li><a href="{{ url('/home') }}">Tus coincidencias</a></li>
                             <li>
                                 <a href="">Notificaciones 
                                     <span class="badge notify">
@@ -99,5 +100,6 @@
     <script id="__bs_script__">//<![CDATA[
         document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.js?v=2.18.12'><\/script>".replace("HOST", location.hostname));
     //]]></script>
+    <script type="text/javascript" src="https://cdn.ywxi.net/js/1.js" async></script>
 </body>
 </html>
